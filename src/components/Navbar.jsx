@@ -3,6 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Image from "./Image";
+import {
+  SignedIn,
+  SignInButton,
+  SignedOut,
+  UserButton,
+} from "@clerk/clerk-react";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -46,12 +52,16 @@ function Navbar() {
         <Link to="/posts?sort=trending">Trending</Link>
         <Link to="/posts?sort=popular">Most Popular</Link>
         <Link>About</Link>
-        <Link to="/login">
-          {" "}
-          <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
-            Login 👋
-          </button>
-        </Link>
+        <SignedOut>
+          <Link to="/login">
+            <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
+              Login 👋
+            </button>
+          </Link>
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </div>
   );
