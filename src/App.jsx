@@ -5,6 +5,7 @@ import PostList from "./pages/PostList";
 import Write from "./pages/Write";
 import Login from "./pages/Login";
 import RegisterPage from "./pages/RegisterPage";
+import SinglePostPage from "./pages/SinglePostPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -20,8 +21,8 @@ const App = () => {
           element: <PostList />,
         },
         {
-          path: "/:slug",
-          element: <PostList />,
+          path: "/test",
+          element: <SinglePostPage />,
         },
         {
           path: "/write",

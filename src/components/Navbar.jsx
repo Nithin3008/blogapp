@@ -13,7 +13,7 @@ import {
 function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center h-[40px]">
       <div className="flex items-center gap-2 motion-preset-slide-right ">
         <Image path="/logo.png" styling="w-8 h-8" alt="logo" />
         <span className="text-xl font-bold">My Journal</span>

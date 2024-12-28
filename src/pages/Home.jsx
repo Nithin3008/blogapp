@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Categories from "../components/Categories";
 import FeaturePost from "../components/FeaturePost";
+import PostLists from "../components/PostLists";
 
 function Home() {
   return (
@@ -60,6 +61,8 @@ function Home() {
       </div>
       <Categories />
       <FeaturePost />
+      <h1 className="mt-10 py-2 text-xl text-gray-500">Recent Posts</h1>
+      <PostLists />
     </div>
   );
 }
