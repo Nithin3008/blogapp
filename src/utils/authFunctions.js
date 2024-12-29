@@ -19,7 +19,7 @@ export async function loginUser(data) {
       data
     );
     console.log(response.data);
-    return response.data.token;
+    return response.data;
   } catch (error) {
     console.log(error);
   }
