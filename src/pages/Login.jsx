@@ -2,19 +2,23 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { loginUser } from "../utils/authFunctions";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "../context/userDetails";
 
 function Login() {
   const { register, handleSubmit, reset } = useForm();
   const [pwd, setPwd] = useState(false);
   const nav = useNavigate();
-
+  const { setUserDetails, setToken } = useContext(userContext);
+  // console.log(setUser);
   async function onSubmit(data) {
     try {
-      const token = await loginUser(data);
-      localStorage.setItem("authToken", token);
+      const userData = await loginUser(data);
+      setUserDetails(userData.user);
+      setToken(userData.token);
+      localStorage.setItem("authToken", userData.token);
       nav("/");
     } catch (error) {
       console.log(error);

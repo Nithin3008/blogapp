@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { signUpUser } from "../utils/authFunctions";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "../context/userDetails";
 
 function RegisterPage() {
   const [pwd, setPwd] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const nav = useNavigate();
+  const { setUserDetails, setToken } = useContext(userContext);
 
   async function onSubmit(data) {
     try {
-      const token = await signUpUser(data);
-      localStorage.setItem("authToken", token);
+      const userData = await signUpUser(data);
+      setUserDetails(userData.user);
+      localStorage.setItem("authToken", userData.token);
+      setToken(userData.token);
       nav("/");
     } catch (error) {
       console.log(error);
