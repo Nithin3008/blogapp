@@ -6,6 +6,7 @@ import Write from "./pages/Write";
 import Login from "./pages/Login";
 import RegisterPage from "./pages/RegisterPage";
 import SinglePostPage from "./pages/SinglePostPage";
+import AuthVerify from "./components/AuthVerify";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,15 +19,27 @@ const App = () => {
         },
         {
           path: "/posts",
-          element: <PostList />,
+          element: (
+            <AuthVerify>
+              <PostList />
+            </AuthVerify>
+          ),
         },
         {
-          path: "/test",
-          element: <SinglePostPage />,
+          path: "/:slug",
+          element: (
+            <AuthVerify>
+              <SinglePostPage />
+            </AuthVerify>
+          ),
         },
         {
           path: "/write",
-          element: <Write />,
+          element: (
+            <AuthVerify>
+              <Write />
+            </AuthVerify>
+          ),
         },
         {
           path: "/login",
