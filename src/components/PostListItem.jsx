@@ -16,7 +16,12 @@ function PostListItem({ post }) {
           <h1 className="text-2xl font-semibold">{post.title}</h1>
           <div className="space-x-2">
             <span className="text-sm">Wriiten by</span>
-            <span className="text-blue-500 text-sm">{post.user.email}</span>
+            <Link
+              to={`/posts?author=${post.user.email}`}
+              className="text-blue-500 text-sm"
+            >
+              {post.user.email}
+            </Link>
             <span className="text-sm">{post.category}</span>
             <span className="text-sm">{format(post.createdAt)}</span>
           </div>
