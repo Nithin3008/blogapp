@@ -9,9 +9,12 @@ const fetchPosts = async (pageParam, searchParams) => {
 
   console.log(searchParamsObj);
 
-  const res = await axios.get(`http://localhost:3000/posts`, {
-    params: { page: pageParam, limit: 10, ...searchParamsObj },
-  });
+  const res = await axios.get(
+    `https://blogappbackend-wpn8.onrender.com/posts`,
+    {
+      params: { page: pageParam, limit: 10, ...searchParamsObj },
+    }
+  );
   return res.data;
 };
 

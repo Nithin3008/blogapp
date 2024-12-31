@@ -6,7 +6,9 @@ import { useContext } from "react";
 import { userContext } from "../context/userDetails";
 
 const fetchComments = async (postId) => {
-  const res = await axios.get(`http://localhost:3000/comments/${postId}`);
+  const res = await axios.get(
+    `https://blogappbackend-wpn8.onrender.com/${postId}`
+  );
   return res.data;
 };
 
@@ -23,7 +25,7 @@ const Comments = ({ postId }) => {
   const mutation = useMutation({
     mutationFn: async (newComment) => {
       return axios.post(
-        `http://localhost:3000/comments/${postId}`,
+        `https://blogappbackend-wpn8.onrender.com/comments/${postId}`,
         newComment,
         {
           headers: {

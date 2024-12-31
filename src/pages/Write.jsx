@@ -18,11 +18,15 @@ function Write() {
     mutationFn: async (newPost) => {
       const token = localStorage.getItem("authToken");
 
-      return axios.post("http://localhost:3000/posts", newPost, {
-        headers: {
-          Authorization: token,
-        },
-      });
+      return axios.post(
+        "https://blogappbackend-wpn8.onrender.com/posts",
+        newPost,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
     },
     onSuccess: (res) => {
       toast.success("Post created");

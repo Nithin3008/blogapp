@@ -12,11 +12,14 @@ const Comment = ({ comment, postId }) => {
 
   const mutation = useMutation({
     mutationFn: async () => {
-      return axios.delete(`http://localhost:3000/comments/${comment._id}`, {
-        headers: {
-          Authorization: authToken,
-        },
-      });
+      return axios.delete(
+        `https://blogappbackend-wpn8.onrender.com/comments/${comment._id}`,
+        {
+          headers: {
+            Authorization: authToken,
+          },
+        }
+      );
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["comments", postId] });

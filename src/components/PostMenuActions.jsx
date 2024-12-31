@@ -18,7 +18,7 @@ function PostMenuActions({ post }) {
   } = useQuery({
     queryKey: ["savedPosts"],
     queryFn: async () => {
-      return axios.get(`http://localhost:3000/users/saved`, {
+      return axios.get(`https://blogappbackend-wpn8.onrender.com/users/saved`, {
         headers: {
           Authorization: authToken,
         },
@@ -28,11 +28,14 @@ function PostMenuActions({ post }) {
 
   const deleteMutation = useMutation({
     mutationFn: async () => {
-      return axios.delete(`http://localhost:3000/posts/${post._id}`, {
-        headers: {
-          Authorization: authToken,
-        },
-      });
+      return axios.delete(
+        `https://blogappbackend-wpn8.onrender.com/posts/${post._id}`,
+        {
+          headers: {
+            Authorization: authToken,
+          },
+        }
+      );
     },
     onSuccess: () => {
       toast.success("Post deleted successfully!");
@@ -48,7 +51,7 @@ function PostMenuActions({ post }) {
   const saveMutation = useMutation({
     mutationFn: async () => {
       return axios.patch(
-        `http://localhost:3000/users/save`,
+        `https://blogappbackend-wpn8.onrender.com/users/save`,
         {
           postId: post._id,
         },

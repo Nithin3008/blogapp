@@ -4,7 +4,7 @@ export async function signUpUser(data) {
   console.log(data);
   try {
     const response = await axios.post(
-      "http://localhost:3000/users/signup",
+      "https://blogappbackend-wpn8.onrender.com/users/signup",
       data
     );
     return response.data.token;
@@ -15,7 +15,7 @@ export async function signUpUser(data) {
 export async function loginUser(data) {
   try {
     const response = await axios.post(
-      "http://localhost:3000/users/login",
+      "https://blogappbackend-wpn8.onrender.com/users/login",
       data
     );
     console.log(response.data);

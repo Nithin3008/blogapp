@@ -6,7 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
 
 const fetchPost = async (slug) => {
-  const res = await axios.get(`http://localhost:3000/posts/${slug}`);
+  const res = await axios.get(
+    `https://blogappbackend-wpn8.onrender.com/posts/${slug}`
+  );
   return res.data;
 };
 
