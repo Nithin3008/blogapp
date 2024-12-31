@@ -14,7 +14,6 @@ const fetchPost = async (slug) => {
 
 function SinglePostPage() {
   const { slug } = useParams();
-  console.log(slug);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["post", slug],
@@ -24,7 +23,7 @@ function SinglePostPage() {
   if (isPending) return "loading...";
   if (error) return "Something went wrong!" + error.message;
   if (!data) return "Post not found!";
-  console.log(data);
+
   return (
     <div>
       <div className="flex gap-2">

@@ -12,7 +12,7 @@ function Login() {
   const [pwd, setPwd] = useState(false);
   const nav = useNavigate();
   const { setUserDetails, setToken } = useContext(userContext);
-  // console.log(setUser);
+
   async function onSubmit(data) {
     try {
       const userData = await loginUser(data);

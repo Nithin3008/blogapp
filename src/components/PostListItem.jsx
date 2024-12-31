@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { format } from "timeago.js";
 
 function PostListItem({ post }) {
-  console.log(post);
   return (
     <div>
       <div className="flex flex-col xl:flex-row gap-4 my-5">

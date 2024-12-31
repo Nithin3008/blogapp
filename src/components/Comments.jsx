@@ -7,14 +7,13 @@ import { userContext } from "../context/userDetails";
 
 const fetchComments = async (postId) => {
   const res = await axios.get(
-    `https://blogappbackend-wpn8.onrender.com/${postId}`
+    `https://blogappbackend-wpn8.onrender.com/comments/${postId}`
   );
   return res.data;
 };
 
 const Comments = ({ postId }) => {
   const { userDetails, authToken } = useContext(userContext);
-  console.log(userDetails);
   const { isPending, error, data } = useQuery({
     queryKey: ["comments", postId],
     queryFn: () => fetchComments(postId),

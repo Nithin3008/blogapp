@@ -37,7 +37,6 @@ function Write() {
   async function onSubmit(data) {
     const plainText = data.content.replace(/<[^>]+>/g, "");
     const img = data.img.length > 0 ? await uploadImage(data.img[0]) : null;
-    console.log(data.img);
     data = { ...data, content: plainText, img };
     mutation.mutate(data);
     reset();

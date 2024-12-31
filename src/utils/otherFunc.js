@@ -1,9 +1,6 @@
 export async function uploadImage(imageData) {
-  console.log(imageData);
   if (imageData) {
     const file = imageData;
-    console.log(file);
-    console.log(file, "image path");
     const present_key = "social_media_proj";
     const formData = new FormData();
 

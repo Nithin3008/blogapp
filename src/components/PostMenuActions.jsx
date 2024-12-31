@@ -86,7 +86,6 @@ function PostMenuActions({ post }) {
     saveMutation.mutate();
   };
 
-  console.log(savedPosts);
   const isSaved = savedPosts?.data?.some((p) => p === post?._id || false);
   return (
     <div>

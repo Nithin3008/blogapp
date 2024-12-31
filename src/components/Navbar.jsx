@@ -10,7 +10,9 @@ function Navbar() {
   return (
     <div className="flex justify-between items-center h-[40px]">
       <div className="flex items-center gap-2 motion-preset-slide-right ">
-        <img src="/logo.png" className="w-8 h-8" alt="logo" />
+        <Link to="/">
+          <img src="/logo.png" className="w-8 h-8" alt="logo" />
+        </Link>
         <span className="text-xl font-bold">My Journal</span>
       </div>
       <div className="md:hidden cursor-pointer">
