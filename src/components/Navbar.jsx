@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import Image from "./Image";
 import { userContext } from "../context/userDetails";
 
 function Navbar() {
@@ -11,7 +10,7 @@ function Navbar() {
   return (
     <div className="flex justify-between items-center h-[40px]">
       <div className="flex items-center gap-2 motion-preset-slide-right ">
-        <Image path="/logo.png" styling="w-8 h-8" alt="logo" />
+        <img src="/logo.png" className="w-8 h-8" alt="logo" />
         <span className="text-xl font-bold">My Journal</span>
       </div>
       <div className="md:hidden cursor-pointer">
