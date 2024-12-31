@@ -73,7 +73,7 @@ function Sidemenu() {
           className="underline cursor-pointer"
           onClick={() => handleCategoryChange("general")}
         >
-          All
+          General Posts
         </span>
         <span
           className="underline cursor-pointer"
