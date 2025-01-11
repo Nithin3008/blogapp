@@ -26,6 +26,22 @@ function Login() {
     reset();
   }
 
+  async function testLogin() {
+    try {
+      const data = {
+        email: "nitinkrishna@tutanota.com",
+        password: "qwerty@123",
+      };
+      const userData = await loginUser(data);
+      setUserDetails(userData.user);
+      setToken(userData.token);
+      localStorage.setItem("authToken", userData.token);
+      nav("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="h-[calc(80vh-40px)] flex flex-col justify-center">
       <form
@@ -55,12 +71,20 @@ function Login() {
             className="cursor:pointer"
           />
         </label>
-        <button
-          type="submit"
-          className="w-fit bg-black text-white p-2 rounded-lg"
-        >
-          Continue
-        </button>
+        <div className="space-x-5">
+          <button
+            type="submit"
+            className="w-fit bg-black text-white p-2 rounded-lg"
+          >
+            Continue
+          </button>
+          <button
+            onClick={() => testLogin}
+            className="w-fit bg-black text-white p-2 rounded-lg"
+          >
+            Test Cred
+          </button>
+        </div>
         <p>
           Didn't have an account?{" "}
           <Link to="/register" className="text-blue-500">
