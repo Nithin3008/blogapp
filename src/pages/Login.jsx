@@ -29,9 +29,10 @@ function Login() {
   async function testLogin() {
     try {
       const data = {
-        email: "nitinkrishna@tutanota.com",
-        password: "qwerty@123",
+        email: import.meta.env.VITE_USERNAME,
+        password: import.meta.env.VITE_PASSWORD,
       };
+      console.log(data);
       const userData = await loginUser(data);
       setUserDetails(userData.user);
       setToken(userData.token);
@@ -79,7 +80,8 @@ function Login() {
             Continue
           </button>
           <button
-            onClick={() => testLogin}
+            onClick={() => testLogin()}
+            type="button"
             className="w-fit bg-black text-white p-2 rounded-lg"
           >
             Test Cred
