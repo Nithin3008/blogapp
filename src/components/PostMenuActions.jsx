@@ -96,7 +96,7 @@ function PostMenuActions({ post }) {
         "Saved Posts fetching failed"
       ) : (
         <div
-          className="flex items-center gap-2 py-2 text-sm cursor-pointer"
+          className="flex items-center gap-1 py-2 text-sm cursor-pointer"
           onClick={handleSave}
         >
           <svg

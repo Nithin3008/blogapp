@@ -24,7 +24,10 @@ function FeaturePost() {
   return (
     <div className="flex flex-col lg:flex-row mt-8 gap-4 justify-around">
       <div className="w-full lg:w-1/2 flex flex-col gap-4">
-        <img src={posts[0].img} className="rounded-3xl object-cover" />
+        <Link to={`/${posts[0].slug}`}>
+          <img src={posts[0].img} className="rounded-3xl object-cover" />
+        </Link>
+
         <div className="flex items-center gap-4">
           <h1>01.</h1>
           <Link className="text-blue-500">{posts[0].category}</Link>
@@ -45,6 +48,9 @@ function FeaturePost() {
             </div>
             <h1 className="text-xl font-bold">{posts[1].title}</h1>
             {!posts[1].img && <p>{posts[1].description.substring(0, 250)}</p>}
+            <Link className="text-blue-500" to={`/${posts[1].slug}`}>
+              Read More
+            </Link>
           </div>
         </div>
 
@@ -61,6 +67,9 @@ function FeaturePost() {
             </div>
             <h1 className="text-xl font-bold">{posts[3].title}</h1>
             <p>{posts[3].description.substring(0, 150)}</p>
+            <Link className="text-blue-500" to={`/${posts[3].slug}`}>
+              Read More
+            </Link>
           </div>
         </div>
 
@@ -77,6 +86,9 @@ function FeaturePost() {
             </div>
             <h1 className="text-xl font-bold">{posts[4].title}</h1>
             <p>{posts[4].description.substring(0, 150)}</p>
+            <Link className="text-blue-500" to={`/${posts[4].slug}`}>
+              Read More
+            </Link>
           </div>
         </div>
       </div>

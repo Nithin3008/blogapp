@@ -35,9 +35,8 @@ function Write() {
   });
 
   async function onSubmit(data) {
-    const plainText = data.content.replace(/<[^>]+>/g, "");
     const img = data.img.length > 0 ? await uploadImage(data.img[0]) : null;
-    data = { ...data, content: plainText, img };
+    data = { ...data, img };
     mutation.mutate(data);
     reset();
   }
@@ -67,12 +66,12 @@ function Write() {
             className="p-2 rounded-xl bg-white shadow-md outline-none"
             {...register("category")}
           >
-            <option value="general">General</option>
-            <option value="web-design">Web Design</option>
-            <option value="development">Development</option>
-            <option value="databases">Databases</option>
-            <option value="seo">Search Engines</option>
-            <option value="marketing">Marketing</option>
+            <option value="General">General</option>
+            <option value="Web-design">Web Design</option>
+            <option value="Development">Development</option>
+            <option value="Databases">Databases</option>
+            <option value="Seo">Search Engines</option>
+            <option value="Marketing">Marketing</option>
           </select>
         </div>
         <textarea
@@ -89,6 +88,19 @@ function Write() {
               className="bg-white flex-1 rounded-lg"
               value={value} // Bind the value from react-hook-form
               onChange={onChange} // Update the form state on change
+              modules={{
+                toolbar: [
+                  [{ header: "1" }, { header: "2" }, { font: [] }],
+                  [{ list: "ordered" }, { list: "bullet" }],
+                  ["bold", "italic", "underline"],
+                  ["link"],
+                  ["blockquote"],
+                  [{ align: [] }],
+                  [{ indent: "-1" }, { indent: "+1" }],
+                  [{ color: [] }, { background: [] }],
+                  ["clean"],
+                ],
+              }}
             />
           )}
         />

@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "timeago.js";
+import Search from "../components/Search";
 
 const fetchPost = async (slug) => {
   const res = await axios.get(
@@ -43,7 +44,7 @@ function SinglePostPage() {
       </div>
       <div className="flex mt-5 gap-16">
         <div className="lg:text-lg space-x-6 text-justify  w-3/4">
-          <p>{data.content}</p>
+          <div dangerouslySetInnerHTML={{ __html: data.content }} />
         </div>
         <div>
           <PostMenuActions post={data} />
@@ -66,7 +67,9 @@ function SinglePostPage() {
               Marketing
             </Link>
           </div>
-          <h1 className="mt-8 mb-4 text-sm font-medium">Search</h1>
+          <div className="mt-8">
+            <Search />
+          </div>
         </div>
       </div>
 

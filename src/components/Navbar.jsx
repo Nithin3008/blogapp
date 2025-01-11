@@ -31,9 +31,6 @@ function Navbar() {
           <Link to="/" onClick={() => setOpen(false)}>
             Home
           </Link>
-          <Link to="/posts?sort=trending" onClick={() => setOpen(false)}>
-            Trending
-          </Link>
           <Link to="/posts?sort=popular" onClick={() => setOpen(false)}>
             Most Popular
           </Link>
@@ -52,9 +49,7 @@ function Navbar() {
       </div>
       <div className="hidden md:flex gap-8 items-center motion-preset-slide-left  ">
         <Link to="/">Home</Link>
-        <Link to="/posts?sort=trending">Trending</Link>
         <Link to="/posts?sort=popular">Most Popular</Link>
-        <Link>About</Link>
         {authToken == null ? (
           <Link to="/login" onClick={() => setOpen(false)}>
             <button className="py-2 px-4 rounded-3xl bg-blue-800 text-white">
